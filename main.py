@@ -51,6 +51,7 @@ def stats(values: str):
 from fastapi import HTTPException
 from pydantic import BaseModel
 import jwt
+from fastapi.responses import JSONResponse
 
 PUBLIC_KEY = """
 -----BEGIN PUBLIC KEY-----
@@ -92,7 +93,7 @@ def verify(req: TokenRequest):
         }
 
     except Exception:
-        raise HTTPException(
-            status_code=401,
-            detail={"valid": False}
-        )
+        return JSONResponse(
+    status_code=401,
+    content={"valid": False}
+)
