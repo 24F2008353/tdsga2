@@ -48,11 +48,9 @@ def stats(values: str):
         "mean": sum(nums) / len(nums)
     }
 
-from fastapi import FastAPI, HTTPException
+from fastapi import HTTPException
 from pydantic import BaseModel
 import jwt
-
-app = FastAPI()
 
 PUBLIC_KEY = """
 -----BEGIN PUBLIC KEY-----
